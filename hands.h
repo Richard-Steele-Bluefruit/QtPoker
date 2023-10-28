@@ -1,7 +1,7 @@
 #ifndef HANDS_H
 #define HANDS_H
 
-enum class Score
+enum class Type
 {
     HighCard = 0,
     Pair,
@@ -13,6 +13,12 @@ enum class Score
     FourOfAKind,
     StraightFlush,
     RoyalFlush
+};
+
+struct Hand
+{
+    Type type;
+    int kicker;
 };
 
 #endif // HANDS_H
