@@ -14,7 +14,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(PokerTimeTests test_pokertimetests.cpp
+set(SOURCE_FILES
+    test_player_hand.h
+    test_player_hand.cpp
+    test_deck.h
+    test_deck.cpp
     ../player_hand.h
     ../player_hand.cpp
     ../card.h
@@ -23,11 +27,17 @@ add_executable(PokerTimeTests test_pokertimetests.cpp
     ../deck.cpp
     ../community_cards.h
     ../community_cards.cpp
-    ../player_hand.h
-    ../player_hand.cpp
     ../hands.h
 )
+
+add_executable(PokerTimeTests
+    main.cpp
+    ${SOURCE_FILES}
+    ${TEST_FILES}
+)
+
 add_test(NAME PokerTimeTests COMMAND PokerTimeTests)
 
 target_link_libraries(PokerTimeTests PRIVATE Qt${QT_VERSION_MAJOR}::Test)
+
 

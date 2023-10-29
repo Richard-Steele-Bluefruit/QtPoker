@@ -10,7 +10,11 @@ class Cards
 public:
     virtual ~Cards()
     {
-        delete[] mCards;
+        if (mCards != nullptr)
+        {
+            delete[] mCards;
+            mCards = nullptr;
+        }
     }
 
     Card* getCards()

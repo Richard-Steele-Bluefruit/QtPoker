@@ -20,7 +20,7 @@ Deck::Deck()
 
 Deck::~Deck()
 {
-    delete[] mCards;
+
 }
 
 Card *Deck::RemoveRandomCard()
@@ -32,7 +32,7 @@ Card *Deck::RemoveRandomCard()
 
     Card randomCard = mCards[randomIndex];
 
-    for (int i = randomIndex; i < mNumberOfCards; i++)
+    for (int i = randomIndex; i < mNumberOfCards-1; i++)
     {
         mCards[i] = mCards[i+1];
     }

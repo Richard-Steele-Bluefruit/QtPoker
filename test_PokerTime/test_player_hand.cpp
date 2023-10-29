@@ -1,50 +1,28 @@
-#include <QtTest>
+#include "test_player_hand.h"
 
 #include "../player_hand.h"
 
-// add necessary includes here
-
-class PokerTimeTests : public QObject
-{
-    Q_OBJECT
-
-public:
-    PokerTimeTests();
-    ~PokerTimeTests();
-
-private slots:
-    void initTestCase();
-    void cleanupTestCase();
-
-    void test_checkFlush1();
-    void test_checkFlush2();
-    void test_checkFlush3();
-    void test_checkStraight1();
-    void test_checkStraight2();
-    void test_checkStraight3();
-};
-
-PokerTimeTests::PokerTimeTests()
+PlayerHandTests::PlayerHandTests()
 {
 
 }
 
-PokerTimeTests::~PokerTimeTests()
+PlayerHandTests::~PlayerHandTests()
 {
 
 }
 
-void PokerTimeTests::initTestCase()
+void PlayerHandTests::initTestCase()
 {
 
 }
 
-void PokerTimeTests::cleanupTestCase()
+void PlayerHandTests::cleanupTestCase()
 {
 
 }
 
-void PokerTimeTests::test_checkFlush1()
+void PlayerHandTests::test_checkFlush1()
 {
     // Given
     Card playerCard1(Suit::Club, 2);
@@ -67,7 +45,7 @@ void PokerTimeTests::test_checkFlush1()
     QVERIFY(hasFlush);
 }
 
-void PokerTimeTests::test_checkFlush2()
+void PlayerHandTests::test_checkFlush2()
 {
     // Given
     Card playerCard1(Suit::Club, 2);
@@ -90,7 +68,7 @@ void PokerTimeTests::test_checkFlush2()
     QVERIFY(hasFlush);
 }
 
-void PokerTimeTests::test_checkFlush3()
+void PlayerHandTests::test_checkFlush3()
 {
     // Given
     Card playerCard1(Suit::Club, 2);
@@ -113,7 +91,7 @@ void PokerTimeTests::test_checkFlush3()
     QVERIFY(hasFlush == false);
 }
 
-void PokerTimeTests::test_checkStraight1()
+void PlayerHandTests::test_checkStraight1()
 {
     // Given
     Card playerCard1(Suit::Club, 3);
@@ -136,7 +114,7 @@ void PokerTimeTests::test_checkStraight1()
     QVERIFY(hasStraight);
 }
 
-void PokerTimeTests::test_checkStraight2()
+void PlayerHandTests::test_checkStraight2()
 {
     // Given
     Card playerCard1(Suit::Club, 3);
@@ -159,7 +137,7 @@ void PokerTimeTests::test_checkStraight2()
     QVERIFY(hasStraight);
 }
 
-void PokerTimeTests::test_checkStraight3()
+void PlayerHandTests::test_checkStraight3()
 {
     // Given
     Card playerCard1(Suit::Club, 3);
@@ -181,7 +159,3 @@ void PokerTimeTests::test_checkStraight3()
     // Then
     QVERIFY(hasStraight == false);
 }
-
-QTEST_APPLESS_MAIN(PokerTimeTests)
-
-#include "test_pokertimetests.moc"
