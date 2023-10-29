@@ -6,14 +6,14 @@ CommunityCards::CommunityCards()
     mCards = new Card[5];
 }
 
-bool CommunityCards::AddCard(const Card &card)
+bool CommunityCards::AddCard(const Card *card)
 {
     if (mNumberOfCards == 5)
     {
         return false;
     }
 
-    mCards[mNumberOfCards] = card;
+    mCards[mNumberOfCards] = *card;
     mNumberOfCards++;
 
     return true;

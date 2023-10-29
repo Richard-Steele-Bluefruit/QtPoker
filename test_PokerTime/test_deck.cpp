@@ -28,7 +28,7 @@ void DeckTests::test_removeRandomCard_removes_a_card()
     QVERIFY(deck.Count() == NUMBER_OF_CARDS_IN_A_DECK);
 
     // When
-    deck.RemoveRandomCard();
+    deck.removeRandomCard();
 
     // Then
     int expected = NUMBER_OF_CARDS_IN_A_DECK - 1;

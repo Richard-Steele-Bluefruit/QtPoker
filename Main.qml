@@ -40,14 +40,18 @@ Window {
             }
 
             Repeater {
-                model: [
-                    "qrc:/cards/2_of_clubs.png",
-                    "qrc:/cards/3_of_clubs.png",
-                    "qrc:/cards/4_of_clubs.png",
-                    "qrc:/cards/5_of_clubs.png",
-                    "qrc:/cards/6_of_clubs.png"
-                ]
+                model: communityCards.cards //[
+                //    "qrc:/cards/2_of_clubs.png",
+                //    "qrc:/cards/3_of_clubs.png",
+                //    "qrc:/cards/4_of_clubs.png",
+                //    "qrc:/cards/5_of_clubs.png",
+                //    "qrc:/cards/6_of_clubs.png"
+                //]
                 delegate: cardComponent
+            }
+
+            Component.onCompleted: {
+                deck.removeRandomCard()
             }
         }
 

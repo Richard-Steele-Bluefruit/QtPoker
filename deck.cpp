@@ -3,7 +3,7 @@
 #include <random>
 #include <QDebug>
 
-Deck::Deck()
+Deck::Deck(QObject* parent)
 {
     mNumberOfCards = NUMBER_OF_CARDS_IN_A_DECK;
     mCards = new Card[mNumberOfCards];
@@ -23,7 +23,7 @@ Deck::~Deck()
 
 }
 
-Card *Deck::RemoveRandomCard()
+Card *Deck::removeRandomCard()
 {
     std::random_device rd;
     std::mt19937 mt(rd());

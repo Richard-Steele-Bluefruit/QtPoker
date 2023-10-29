@@ -8,7 +8,7 @@ class CommunityCards : public Cards
 public:
     CommunityCards();
 
-    bool AddCard(const Card &card);
+    bool AddCard(const Card *card);
 };
 
 #endif // COMMUNITYCARDS_H

@@ -29,6 +29,8 @@ qt_add_qml_module(appPokerTime
     player_hand.h
     player_hand.cpp
     hands.h
+    poker_game.h
+    poker_game.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

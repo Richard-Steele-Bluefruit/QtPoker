@@ -3,15 +3,21 @@
 
 #include "cards.h"
 
+#include <QObject>
+
 #define NUMBER_OF_CARDS_IN_A_DECK   52
 
-class Deck : public Cards
+class Deck : public QObject, public Cards
 {
+    Q_OBJECT
 public:
-    Deck();
+    explicit Deck(QObject* parent = nullptr);
     ~Deck();
 
-    Card *RemoveRandomCard();
+    Q_INVOKABLE Card *removeRandomCard();
+
+signals:
+    void cardRemoved();
 };
 
 #endif // DECK_H
