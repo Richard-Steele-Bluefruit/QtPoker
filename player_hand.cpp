@@ -23,11 +23,10 @@ PlayerHand::PlayerHand(Card &card1, Card &card2, CommunityCards *communityCards)
 
 PlayerHand::~PlayerHand()
 {
-    for (int i = 0; i < 7; i++)
+    if (mAllCards != nullptr)
     {
-        delete[] mAllCards[i];
+        delete[] mAllCards;
     }
-    delete[] mAllCards;
 };
 
 void PlayerHand::bubbleSort()
