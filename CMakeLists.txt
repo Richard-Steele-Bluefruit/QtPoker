@@ -28,8 +28,6 @@ qt_add_qml_module(appPokerTime
     community_cards.cpp
     player_hand.h
     player_hand.cpp
-
-
     hands.h
 )
 

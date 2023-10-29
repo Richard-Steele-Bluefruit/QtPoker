@@ -2,6 +2,7 @@
 #define PLAYERHAND_H
 
 #include "cards.h"
+#include "community_cards.h"
 
 class Deck;
 class Hand;
@@ -9,15 +10,8 @@ class Hand;
 class PlayerHand : public Cards
 {
 public:
-    PlayerHand(const Card &card1, const Card &card2, Card *deck);
+    PlayerHand(Card &card1, Card &card2, CommunityCards *communityCards);
     ~PlayerHand();
-
-private:
-    Hand GetScore();
-
-    Card **mAllCards;
-
-    void bubbleSort();
 
     bool checkRoyalFlush();
     bool checkStraightFlush();
@@ -29,6 +23,13 @@ private:
     bool checkTwoPair();
     bool checkPair();
     bool checkHighCard();
+
+private:
+    Hand GetScore();
+    void bubbleSort();
+
+    Card **mAllCards;
+
 };
 
 #endif // PLAYERHAND_H

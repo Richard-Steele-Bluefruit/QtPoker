@@ -1,8 +1,9 @@
 #include "player_hand.h"
-#include "deck.h"
 #include "hands.h"
 
-PlayerHand::PlayerHand(Card &card1, Card &card2, Card *deck)
+#include <QDebug>
+
+PlayerHand::PlayerHand(Card &card1, Card &card2, CommunityCards *communityCards)
 {
     mNumberOfCards = 7;
     mCards = new Card[mNumberOfCards];
@@ -13,11 +14,11 @@ PlayerHand::PlayerHand(Card &card1, Card &card2, Card *deck)
     mAllCards = new Card*[7];
     mAllCards[0] = &card1;
     mAllCards[1] = &card2;
-    mAllCards[2] = &deck[0];
-    mAllCards[3] = &deck[1];
-    mAllCards[4] = &deck[2];
-    mAllCards[5] = &deck[3];
-    mAllCards[6] = &deck[4];
+    mAllCards[2] = &communityCards->getCards()[0];
+    mAllCards[3] = &communityCards->getCards()[1];
+    mAllCards[4] = &communityCards->getCards()[2];
+    mAllCards[5] = &communityCards->getCards()[3];
+    mAllCards[6] = &communityCards->getCards()[4];
 };
 
 PlayerHand::~PlayerHand()
@@ -29,7 +30,7 @@ void PlayerHand::bubbleSort()
 {
     for (int iters = 0; iters < mNumberOfCards; iters++)
     {
-        for (int i = 0; i < mNumberOfCards; i++)
+        for (int i = 0; i < mNumberOfCards - 1; i++)
         {
             if (mAllCards[i]->value > mAllCards[i + 1]->value)
             {
@@ -68,7 +69,7 @@ bool PlayerHand::checkFullHouse()
 
 bool PlayerHand::checkFlush()
 {
-    int suitScores[4];
+    int suitScores[4] = {0};
 
     for (int i = 0; i < mNumberOfCards; i++)
     {
@@ -77,7 +78,7 @@ bool PlayerHand::checkFlush()
 
     int currentHighestSuitCount = 0;
 
-    for (int i = 0; i < mNumberOfCards; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (suitScores[i] > currentHighestSuitCount)
         {
@@ -94,7 +95,7 @@ bool PlayerHand::checkStraight()
 
     int runningCount = 1;
 
-    for (int i = 1; i < mNumberOfCards - 1; i++)
+    for (int i = 0; i < mNumberOfCards - 1; i++)
     {
         // skip an identical value card
         if (mAllCards[i]->value == mAllCards[i + 1]->value)
@@ -102,7 +103,7 @@ bool PlayerHand::checkStraight()
             continue;
         }
 
-        if (mAllCards[i]->value == mAllCards[i + 1]->value + 1)
+        if (mAllCards[i]->value == mAllCards[i + 1]->value - 1)
         {
             runningCount++;
 
