@@ -18,6 +18,8 @@ public:
                     PlayerHand *p1,
                     PlayerHand *p2);
 
+    Q_PROPERTY(QList<QString> communityCards READ getCommunityCards WRITE setCommunityCards NOTIFY communityCardsChanged FINAL)
+
 private:
     Deck *mDeck;
     CommunityCards *mCommunityCards;
